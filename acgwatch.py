@@ -1,8 +1,12 @@
-import requests
+"""
+/acg/ thread watcher.
+"""
+
 import re
 import time
 import os.path
 import datetime
+import requests
 
 THREAD_REGEX = r"(\/acg\/)|(animal\scrossing)"
 BOARD = "vg"
