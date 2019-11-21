@@ -7,6 +7,9 @@ import time
 import os.path
 import datetime
 import requests
+import toml
+
+TOML_CONFIG_FILE = "config.toml"
 
 THREAD_REGEX = r"(\/acg\/)|(animal\scrossing)"
 BOARD = "vg"
