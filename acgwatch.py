@@ -57,7 +57,7 @@ def make_headers(threadId, timestamp):
 def write(f, now, replies, images, posters, page):
     f.write("%s,%s,%s,%s,%s\n" % (now, replies, images, posters, page))
 
-if __name__ == '__main__':
+def main():
     threads = find_threads()
     timestamp = get_prior_time()
     now = datetime.datetime.now().isoformat()
@@ -89,3 +89,6 @@ if __name__ == '__main__':
                 write(f, now, replies, images, posters, page)
         else:
             print("ERR %s" % r.status_code)
+
+if __name__ == '__main__':
+    main()
