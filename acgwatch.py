@@ -3,7 +3,6 @@
 """
 
 import re
-import time
 import os.path
 import datetime
 import requests
