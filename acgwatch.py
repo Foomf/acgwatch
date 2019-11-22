@@ -8,6 +8,7 @@ import os.path
 import datetime
 import requests
 import toml
+from prior_time import get_prior_time
 
 TOML_CONFIG_FILE = "config.toml"
 
@@ -37,19 +38,6 @@ def get_prior_data(threadId):
         if len(lines) <= 1:
             return None
         return lines[-1]
-
-def get_prior_time():
-    currtime = time.time()
-    lastupdatefile = os.path.join(os.path.dirname(__file__), "lastupdate")
-    if os.path.isfile(lastupdatefile):
-        with open(lastupdatefile, "r") as f:
-            priortime = float(f.read())
-        with open(lastupdatefile, "w") as f:
-            f.write(str(currtime))
-        return time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime(priortime))
-    with open(lastupdatefile, "w") as f:
-        f.write(str(currtime))
-    return None
 
 def make_headers(threadId, timestamp):
     if not os.path.isfile(get_filename(threadId)) or timestamp is None:
