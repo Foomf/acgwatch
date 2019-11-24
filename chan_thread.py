@@ -26,7 +26,7 @@ class ThreadData:
             f"{self.reply_count},"
             f"{self.image_count},"
             f"{self.unique_ip_count},"
-            f"{self.page}")
+            f"{self.page}\n")
 
 class Thread:
     """
