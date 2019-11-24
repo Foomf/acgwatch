@@ -14,7 +14,10 @@ BOARD = "vg"
 
 def __main():
     timestamp = get_prior_time()
-    for thread in find_threads(BOARD, THREAD_REGEX, "."):
+    out_dir = "out/"
+    if not os.path.isdir(out_dir):
+        os.makedirs(out_dir)
+    for thread in find_threads(BOARD, THREAD_REGEX, out_dir):
         data = thread.get_data(timestamp)
         if data is None:
             print("No data!")
