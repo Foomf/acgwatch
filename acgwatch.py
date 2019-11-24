@@ -3,7 +3,7 @@
 """
 
 from prior_time import get_prior_time
-from remote_data_provider import RemoteDataProvider
+from remote_data_provider import find_threads
 
 TOML_CONFIG_FILE = "config.toml"
 
@@ -12,8 +12,7 @@ BOARD = "vg"
 
 def __main():
     timestamp = get_prior_time()
-    provider = RemoteDataProvider(BOARD, THREAD_REGEX, ".")
-    for thread in provider.find_threads():
+    for thread in find_threads(BOARD, THREAD_REGEX, "."):
         data = thread.get_data(timestamp)
         if data is None:
             print("No data!")
