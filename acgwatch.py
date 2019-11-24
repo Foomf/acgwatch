@@ -4,6 +4,8 @@
 
 import os.path
 
+import toml
+
 from prior_time import get_prior_time
 from remote_data_provider import find_threads
 
@@ -13,8 +15,10 @@ THREAD_REGEX = r"(\/acg\/)|(animal\scrossing)"
 BOARD = "vg"
 
 def __main():
+    config = toml.load("config.toml")
+    out_dir = config["output_dir"]
+
     timestamp = get_prior_time()
-    out_dir = "out/"
     if not os.path.isdir(out_dir):
         os.makedirs(out_dir)
     for thread in find_threads(BOARD, THREAD_REGEX, out_dir):
