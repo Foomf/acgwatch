@@ -21,12 +21,12 @@ class ThreadData:
         """
         Converts thread data to a csv entry
         """
-        return f"""
-            {self.timestamp},
-            {self.reply_count},
-            {self.image_count},
-            {self.unique_ip_count},
-            {self.page}"""
+        return (
+            f"{self.timestamp},"
+            f"{self.reply_count},"
+            f"{self.image_count},"
+            f"{self.unique_ip_count},"
+            f"{self.page}")
 
 class Thread:
     """
