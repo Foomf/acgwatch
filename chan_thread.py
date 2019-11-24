@@ -88,10 +88,10 @@ class Thread:
             timestamp = datetime.datetime.now().isoformat()
         return ThreadData(
             timestamp=timestamp,
-            reply_count=parts[0],
-            image_count=parts[1],
-            unique_ip_count=parts[2],
-            page=parts[3])
+            reply_count=parts[1],
+            image_count=parts[2],
+            unique_ip_count=parts[3],
+            page=parts[4])
 
     def __make_headers(self, timestamp):
         if not os.path.isfile(self.get_filename()) or timestamp is None:
