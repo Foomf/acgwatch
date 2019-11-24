@@ -15,10 +15,11 @@ THREAD_REGEX = r"(\/acg\/)|(animal\scrossing)"
 BOARD = "vg"
 
 def __main():
-    config = toml.load("config.toml")
+    config = toml.load(TOML_CONFIG_FILE)
     out_dir = config["output_dir"]
+    timestamp_persist_file = config["timestamp_persist_file"]
 
-    timestamp = get_prior_time()
+    timestamp = get_prior_time(timestamp_persist_file)
     if not os.path.isdir(out_dir):
         os.makedirs(out_dir)
     for thread in find_threads(BOARD, THREAD_REGEX, out_dir):
